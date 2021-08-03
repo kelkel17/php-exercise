@@ -1,12 +1,10 @@
-// Exercise 4
-// Usage: call sortList function
-// Example: sortList([$array = array(
-	"Grade 4" => array("Erlan", "Bernie", "Ana"),
-	"Grade 1" => array("Tesla", "BMW", "Honda"),
-	"Grade 3" => array("Japan", "Australia", "UK"),
-));
-
 <?php 
+    /*
+     *  Exercise 4
+     *  Usage: call sortList function
+     *  Example: 
+     *  sortList([$array = array("Grade 4" => array("Erlan", "Bernie", "Ana"), "Grade 1" => array("Tesla", "BMW", "Honda"), "Grade 3" => array("Japan", "Australia", "UK")));
+    */
     function sortList($array = []) {
         ksort($array);
         
