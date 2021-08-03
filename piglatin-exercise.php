@@ -1,7 +1,7 @@
 // Exercise 1
 // Usage: call compiler function
 // Example: compiler("This is a sample string");
-
+<?php
 function compiler($string) {
     if (!empty($string)) {
         $trimString = trimString($string);
@@ -33,3 +33,4 @@ function trimString($string) {
 
     return preg_replace('/[^A-Za-z0-9-]/', '', $string); // Removes special chars.
 }
+?>

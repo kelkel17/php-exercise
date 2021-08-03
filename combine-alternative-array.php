@@ -1,7 +1,7 @@
 // Exercise 2
 // Usage: call arrayCombine function
 // Example: arrayCombine(["a", "b", "c"], [1, 2, 3]);
-
+<?php
 function arrayCombine($array1 = [], $array2 = []) {
     $newArray = array();
 
@@ -24,3 +24,4 @@ function arrayCombine($array1 = [], $array2 = []) {
         return "Paramaters should be both array";
     }
 }
+?>
