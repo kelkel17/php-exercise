@@ -5,45 +5,31 @@
 <pre>
 <?php
 function stringInAFrame($array = []) {
-    $max = getMax($array);
+    $max = 0;
     $header = "";
     $footer = "";
-    $print = "";
-
-    for($i = 0; $i < ($max + 4); $i++) {
-        $header .= "*";
-        $footer .= "*";
-    }
+    $content = "";
 
     foreach($array as $value) {
-        $value1 = strlen($value);
+        $ctr = 0;
+        $end = "";
 
-        if ($value1 < $max) {
-            for($y = 0; $y < $max; $y++) {
-                $value .= " ";
-            }
-
-            $value = "* " . $value . "*" . "\n";
-        } else {
-            $value = "* " . $value . " *" . "\n";
+        if (strlen($value) > $max) {
+            $max = strlen($value);
         }
 
-        $print .= $value;
-    }
-
-    print($header. "\n" .$print . $footer);
-}
-
-function getMax($array = []) {
-    $max = 0;
-
-    for($i = 0; $i < count($array); $i++) {
-        if (strlen($array[$i]) > $max) {
-            $max = strlen($array[$i]);
+        for ($i = 1; $i <= ($max - strlen($value)); $i++) {
+            $end = " ".$end;
         }
+
+        $content .= "* ".$value.$end." *\r\n";
     }
 
-    return $max;
+    for ($i = 1; $i <= ($max + 4); $i++) {
+        $header .= "*";
+    }
+
+    echo $header."\r\n".$content.$header;
 }
 ?>
 
