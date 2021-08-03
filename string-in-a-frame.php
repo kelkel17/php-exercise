@@ -5,7 +5,7 @@
 <pre>
 <?php
 function stringInAFrame($array = []) {
-    $max = 0;
+    $max = getMax($array);
     $header = "";
     $footer = "";
     $content = "";
@@ -14,22 +14,30 @@ function stringInAFrame($array = []) {
         $ctr = 0;
         $end = "";
 
-        if (strlen($value) > $max) {
-            $max = strlen($value);
-        }
-
         for ($i = 1; $i <= ($max - strlen($value)); $i++) {
-            $end = " ".$end;
+            $end = " " . $end;
         }
 
-        $content .= "* ".$value.$end." *\r\n";
+        $content .= "* " . $value . $end . " *\r\n";
     }
 
     for ($i = 1; $i <= ($max + 4); $i++) {
         $header .= "*";
     }
 
-    echo $header."\r\n".$content.$header;
+    echo $header . "\r\n" . $content . $header;
+}
+
+function getMax($array = []) {
+    $max = 0;
+
+    for ($i = 0; $i < count($array); $i++) {
+        if (strlen($array[$i]) > $max) {
+            $max = strlen($array[$i]);
+        }
+    }
+
+    return $max;
 }
 ?>
 
